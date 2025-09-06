@@ -114,93 +114,184 @@
                 <div class="bg-white rounded-2xl shadow-xl p-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Create New Blog Post</h2>
                     
-                    <form id="blog-form" class="space-y-6">
-                        <!-- Title -->
-                        <div>
-                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
-                                Blog Title *
-                            </label>
-                            <input type="text" id="title" name="title" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                                   placeholder="Enter blog title..." />
-                        </div>
+                   <form id="blog-form" class="space-y-6">
+    <!-- Blog Title -->
+    <div>
+        <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Blog Title *</label>
+        <input type="text" id="title" name="title" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter blog title..." />
+    </div>
 
-                        <!-- Category -->
-                        <div>
-                            <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
-                                Category *
-                            </label>
-                            <select id="category" name="category" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
-                                <option value="">Select Category</option>
-                                <option value="Travel Guide">Travel Guide</option>
-                                <option value="Road Trip">Road Trip</option>
-                                <option value="Business Travel">Business Travel</option>
-                                <option value="Heritage Tour">Heritage Tour</option>
-                                <option value="Adventure Tour">Adventure Tour</option>
-                                <option value="Cultural Tour">Cultural Tour</option>
-                                <option value="Nature Tour">Nature Tour</option>
-                                <option value="Scenic Tour">Scenic Tour</option>
-                                <option value="Coastal Route">Coastal Route</option>
-                            </select>
-                        </div>
+    <!-- Category -->
+    <div>
+        <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
+        <input type="text" id="category" name="category" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter blog category..." />
+    </div>
 
-                        <!-- Keywords -->
-                        <div>
-                            <label for="keywords" class="block text-sm font-medium text-gray-700 mb-2">
-                                Keywords (comma-separated) *
-                            </label>
-                            <input type="text" id="keywords" name="keywords" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                                   placeholder="e.g., Gujarat travel, cab service, Mumbai route..." />
-                        </div>
+    <!-- Keywords -->
+    <div>
+        <label for="keywords" class="block text-sm font-medium text-gray-700 mb-2">Keywords (comma-separated) *</label>
+        <input type="text" id="keywords" name="keywords" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., cab service, travel tips, Mumbai" />
+    </div>
 
-                        <!-- Content -->
-                        <div>
-                            <label for="content" class="block text-sm font-medium text-gray-700 mb-2">
-                                Blog Content (HTML) *
-                            </label>
-                            <textarea id="content" name="content" rows="12" required
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                                      placeholder="Enter blog content with HTML formatting..."></textarea>
-                            <p class="text-sm text-gray-500 mt-2">
-                                Use HTML tags like &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt; for formatting.
-                            </p>
-                        </div>
+    <!-- Mini Card Description -->
+    <div>
+        <label for="miniDescription" class="block text-sm font-medium text-gray-700 mb-2">Mini Card Description *</label>
+        <textarea id="miniDescription" name="miniDescription" rows="3" required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                  placeholder="Short description for blog card view..."></textarea>
+    </div>
 
-                        <!-- Image Upload -->
-                        <div>
-                            <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
-                                Featured Image
-                            </label>
-                            <input type="file" id="image" name="image" accept="image/*"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" />
-                            <p class="text-sm text-gray-500 mt-2">
-                                Upload a featured image for the blog post (optional).
-                            </p>
-                        </div>
+    <!-- Featured Image -->
+    <div>
+        <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Featured Image *</label>
+        <input type="file" id="image" name="image" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter image URL..." />
+    </div>
 
-                        <!-- Author -->
-                        <div>
-                            <label for="author" class="block text-sm font-medium text-gray-700 mb-2">
-                                Author
-                            </label>
-                            <input type="text" id="author" name="author" value="Mr Amar Jankar"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" />
-                        </div>
+    <!-- Author -->
+    <div>
+        <label for="author" class="block text-sm font-medium text-gray-700 mb-2">Author *</label>
+        <input type="text" id="author" name="author" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter author name..." />
+    </div>
 
-                        <!-- Submit Button -->
-                        <div class="text-center pt-6">
-                            <button type="submit" id="submit-btn"
-                                    class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors font-medium text-lg">
-                                <span id="submit-text">Generate Blog</span>
-                                <div id="submit-loading" class="hidden flex items-center justify-center">
-                                    <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                                    Generating...
-                                </div>
-                            </button>
-                        </div>
-                    </form>
+    <!-- Date -->
+    <div>
+        <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Date *</label>
+        <input type="text" id="date" name="date" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="January 15, 2024" />
+    </div>
+
+    <!-- Read Time -->
+    <div>
+        <label for="readTime" class="block text-sm font-medium text-gray-700 mb-2">Read Time (in minutes) *</label>
+        <input type="number" id="readTime" name="readTime" required min="1"
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., 5" />
+    </div>
+
+    <!-- Slug -->
+    <div>
+        <label for="slug" class="block text-sm font-medium text-gray-700 mb-2">Slug *</label>
+        <input type="text" id="slug" name="slug" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., gujarat-to-mumbai-cab-guide" />
+    </div>
+
+    <!-- Sub Title -->
+    <div>
+        <label for="subTitle" class="block text-sm font-medium text-gray-700 mb-2">Sub Title (Content Page)</label>
+        <input type="text" id="subTitle" name="subTitle"
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter sub title..." />
+    </div>
+
+    <!-- Starter Paragraph -->
+    <div>
+        <label for="starterPara" class="block text-sm font-medium text-gray-700 mb-2">Starter Paragraph (up to 3 lines) *</label>
+        <textarea id="starterPara" name="starterPara" rows="3" required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                  placeholder="Write an engaging starter paragraph..."></textarea>
+    </div>
+
+    <!-- Section One -->
+    <div>
+        <label for="sectionOneHeading" class="block text-sm font-medium text-gray-700 mb-2">Section One Heading *</label>
+        <input type="text" id="sectionOneHeading" name="sectionOneHeading" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., Why Choose Gujarat to Mumbai Cab" />
+    </div>
+
+    <div>
+        <label for="sectionOnePoint1" class="block text-sm font-medium text-gray-700 mb-2">Section One Point 1 *</label>
+        <input type="text" id="sectionOnePoint1" name="sectionOnePoint1" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter point 1..." />
+    </div>
+
+    <div>
+        <label for="sectionOnePoint2" class="block text-sm font-medium text-gray-700 mb-2">Section One Point 2 *</label>
+        <input type="text" id="sectionOnePoint2" name="sectionOnePoint2" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter point 2..." />
+    </div>
+
+    <div>
+        <label for="sectionOnePoint3" class="block text-sm font-medium text-gray-700 mb-2">Section One Point 3 *</label>
+        <input type="text" id="sectionOnePoint3" name="sectionOnePoint3" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter point 3..." />
+    </div>
+
+    <div>
+        <label for="sectionOnePoint4" class="block text-sm font-medium text-gray-700 mb-2">Section One Point 4 *</label>
+        <input type="text" id="sectionOnePoint4" name="sectionOnePoint4" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter point 4..." />
+    </div>
+
+    <div>
+        <label for="sectionOnePoint5" class="block text-sm font-medium text-gray-700 mb-2">Section One Point 5 *</label>
+        <input type="text" id="sectionOnePoint5" name="sectionOnePoint5" required
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="Enter point 5..." />
+    </div>
+
+    <!-- Section Two -->
+    <div>
+        <label for="sectionTwoHeading" class="block text-sm font-medium text-gray-700 mb-2">Section Two Heading</label>
+        <input type="text" id="sectionTwoHeading" name="sectionTwoHeading"
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., Travel Tips" />
+    </div>
+
+    <div>
+        <label for="sectionTwoPara1" class="block text-sm font-medium text-gray-700 mb-2">Section Two Mini Para 1</label>
+        <textarea id="sectionTwoPara1" name="sectionTwoPara1" rows="2"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                  placeholder="Mini paragraph 1..."></textarea>
+    </div>
+
+    <div>
+        <label for="sectionTwoPara2" class="block text-sm font-medium text-gray-700 mb-2">Section Two Mini Para 2</label>
+        <textarea id="sectionTwoPara2" name="sectionTwoPara2" rows="2"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                  placeholder="Mini paragraph 2..."></textarea>
+    </div>
+
+    <!-- Section Three -->
+    <div>
+        <label for="sectionThreeHeading" class="block text-sm font-medium text-gray-700 mb-2">Section Three Heading</label>
+        <input type="text" id="sectionThreeHeading" name="sectionThreeHeading"
+               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+               placeholder="e.g., Conclusion" />
+    </div>
+
+    <div>
+        <label for="sectionThreePara1" class="block text-sm font-medium text-gray-700 mb-2">Section Three Mini Para 1</label>
+        <textarea id="sectionThreePara1" name="sectionThreePara1" rows="2"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                  placeholder="Closing remarks..."></textarea>
+    </div>
+
+    <!-- Submit -->
+    <div>
+        <button type="submit"
+                class="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition">
+            Submit Blog
+        </button>
+    </div>
+</form>
+
                 </div>
             </div>
         </div>

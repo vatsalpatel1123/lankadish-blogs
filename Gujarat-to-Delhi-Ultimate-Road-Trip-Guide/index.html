@@ -156,17 +156,32 @@
                 <h3 class="text-xl font-bold mb-4">More Travel Inspiration</h3>
                 <p class="mb-6 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive travel tips and hidden destination guides.</p>
 <div class="flex justify-center mb-8">
-    <input id="newsletter-email" type="email" placeholder="Your email address" 
+    <input id="newsletter-email" type="email" placeholder="Your email address"
            class="px-4 py-2 rounded-l-lg w-64 focus:outline-none text-black">
-    <button id="subscribe-btn" 
+
+    <!-- Button & Success Msg Wrapper -->
+    <div id="subscribe-wrapper" class="relative">
+        <!-- Subscribe Button -->
+        <button id="subscribe-btn"
             class="bg-primary text-black px-6 py-2 rounded-r-lg font-bold hover:bg-yellow-500 transition-colors">
-        Subscribe
-    </button>
+            Subscribe
+        </button>
+
+        <!-- Success Message (Initially Hidden) -->
+        <div id="success-msg"
+             class="hidden bg-green-500 text-white px-6 py-2 rounded-r-lg font-bold flex items-center justify-center space-x-2 opacity-0 transition-opacity duration-500">
+            <i data-feather="check"></i>
+            <span>Subscribed!</span>
+        </div>
+    </div>
 </div>
 
 <script>
 document.getElementById("subscribe-btn").addEventListener("click", async () => {
     const email = document.getElementById("newsletter-email").value.trim();
+    const btn = document.getElementById("subscribe-btn");
+    const msg = document.getElementById("success-msg");
+
     if (!email) {
         alert("Please enter your email address.");
         return;
@@ -180,8 +195,21 @@ document.getElementById("subscribe-btn").addEventListener("click", async () => {
         });
 
         if (res.ok) {
-            alert("✅ Subscribed successfully!");
             document.getElementById("newsletter-email").value = "";
+
+            // Hide button, show success message
+            btn.classList.add("hidden");
+            msg.classList.remove("hidden");
+            setTimeout(() => msg.classList.add("opacity-100"), 50); // smooth fade-in
+
+            // After 3s revert back
+            setTimeout(() => {
+                msg.classList.remove("opacity-100");
+                setTimeout(() => {
+                    msg.classList.add("hidden");
+                    btn.classList.remove("hidden");
+                }, 500); // wait fade-out before swapping
+            }, 3000);
         } else {
             alert("❌ Failed to subscribe. Please try again.");
         }
@@ -190,7 +218,11 @@ document.getElementById("subscribe-btn").addEventListener("click", async () => {
         alert("⚠️ Something went wrong. Please try again later.");
     }
 });
+
+// re-render feather icons
+feather.replace();
 </script>
+
 
                 <div class="flex justify-center space-x-6 mb-6">
                     <a href="https://www.instagram.com/lankadhishcabservice/" class="text-light hover:text-primary transition-colors"><i data-feather="instagram"></i></a>

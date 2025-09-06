@@ -345,6 +345,102 @@
     <div id="toast" class="toast"></div>
 
     <script>
+    // Toast notification function
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type}`;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // Convert file to base64
+    function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    // Form submission
+    document.getElementById('blog-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        try {
+            const formData = new FormData(this);
+            const imageFile = formData.get('image');
+
+            // Collect all fields into one object
+            const blogData = {
+                type: 'blog_upload',
+                title: formData.get('title'),
+                category: formData.get('category'),
+                keywords: formData.get('keywords'),
+                miniDescription: formData.get('miniDescription'),
+                author: formData.get('author'),
+                date: formData.get('date'),
+                readTime: formData.get('readTime'),
+                slug: formData.get('slug'),
+                subTitle: formData.get('subTitle'),
+                starterPara: formData.get('starterPara'),
+                sectionOneHeading: formData.get('sectionOneHeading'),
+                sectionOnePoint1: formData.get('sectionOnePoint1'),
+                sectionOnePoint2: formData.get('sectionOnePoint2'),
+                sectionOnePoint3: formData.get('sectionOnePoint3'),
+                sectionOnePoint4: formData.get('sectionOnePoint4'),
+                sectionOnePoint5: formData.get('sectionOnePoint5'),
+                sectionTwoHeading: formData.get('sectionTwoHeading'),
+                sectionTwoPara1: formData.get('sectionTwoPara1'),
+                sectionTwoPara2: formData.get('sectionTwoPara2'),
+                sectionThreeHeading: formData.get('sectionThreeHeading'),
+                sectionThreePara1: formData.get('sectionThreePara1'),
+                timestamp: new Date().toISOString(),
+                source: 'lankadhish-blog-admin'
+            };
+
+            // Handle image upload as base64
+            if (imageFile && imageFile.size > 0) {
+                const base64Image = await fileToBase64(imageFile);
+                blogData.image = {
+                    name: imageFile.name,
+                    size: imageFile.size,
+                    type: imageFile.type,
+                    data: base64Image
+                };
+            }
+
+            // Send to webhook
+            const response = await fetch('https://automate.axonflash.com/webhook/lankadish-blogs-form-upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(blogData)
+            });
+
+            if (response.ok) {
+                showToast('✅ Blog uploaded successfully!', 'success');
+                this.reset();
+
+                // Redirect after 2 sec
+                setTimeout(() => {
+                    window.location.href = 'blog.html';
+                }, 2000);
+            } else {
+                throw new Error('Webhook rejected the request');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showToast('❌ Failed to upload blog. Please try again.', 'error');
+        }
+    });
+</script>
+
+
+    <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');

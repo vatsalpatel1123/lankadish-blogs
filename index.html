@@ -249,7 +249,7 @@
             const blogCard = `
                 <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative">
-                        <img src="file:///D:/Project/lankadish-blogs/${blog.slug}/${blog.slug}.jpg" alt="${blog.title}" class="w-full h-48 object-cover" />
+                        <img src="${blog.slug}/${blog.slug}.jpg" alt="${blog.title}" class="w-full h-48 object-cover" />
                         <div class="absolute top-4 left-4">
                             <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
                                 ${blog.category || 'Travel'}
@@ -258,7 +258,7 @@
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-bold text-gray-900 mb-3 hover:text-primary transition-colors">
-                            <a href="file:///D:/Project/lankadish-blogs/${blog.slug}">${blog.title}</a>
+                            <a href="${blog.slug}">${blog.title}</a>
                         </h2>
                         <p class="text-gray-600 mb-4 line-clamp-3">${blog.mcarddesc || blog.starterpara || ""}</p>
                         <div class="flex items-center justify-between text-sm text-gray-500 mb-4">

@@ -215,9 +215,9 @@
             menu.classList.toggle('hidden');
         }
 
-
+    // const apiKey = process.env.BASEROW_API;
     const BASE_URL = "https://database.axonflash.com/api/database/rows/table/734/?user_field_names=true";
-    const TOKEN = "Qkh2CWT4xq5pewMnpJIWsj3uIOUrwHDU";
+    // const TOKEN = ${apiKey};
 
     let currentPage = 1;
     const pageSize = 9;
@@ -228,7 +228,7 @@
         try {
             const url = `${BASE_URL}&page=${page}&size=${pageSize}`;
             const res = await fetch(url, {
-                headers: { "Authorization": `Token ${TOKEN}` }
+                headers: { "Authorization": `Token Qkh2CWT4xq5pewMnpJIWsj3uIOUrwHDU`, }
             });
             const data = await res.json();
             renderBlogs(data.results);

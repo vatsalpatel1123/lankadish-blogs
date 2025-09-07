@@ -228,7 +228,7 @@
         try {
             const url = `${BASE_URL}&page=${page}&size=${pageSize}`;
             const res = await fetch(url, {
-                headers: { "Authorization": `Token ${TOKEN}` }
+                headers: { "Authorization": `Token ${process.env.BASEROW_API}`, }
             });
             const data = await res.json();
             renderBlogs(data.results);
